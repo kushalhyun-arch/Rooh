@@ -31,7 +31,7 @@ On Windows, `run-dev.bat` starts the development server. `run-prod.bat` builds t
 
 ## Feedback and future backend
 
-Without `VITE_API_BASE_URL`, feedback continues to use FormSubmit. Set `VITE_FORMSUBMIT_EMAIL` in `.env` to the destination address before production; the current destination remains as a fallback.
+Without `VITE_API_BASE_URL`, feedback uses FormSubmit and requires `VITE_FORMSUBMIT_EMAIL`. Copy `.env.example` to `.env` for local development and set the recipient there. For Vercel, add `VITE_FORMSUBMIT_EMAIL` in the project's Environment Variables settings and redeploy after changing it. This value is included in the browser bundle, so it is a public contact address, not a secret.
 
 When a backend is available, set `VITE_API_BASE_URL` to its API root, for example `http://localhost:4000/api`. The feedback service then sends JSON to `POST /feedback`. Keep database credentials and other secrets on the backend; Vite-exposed `VITE_` values are public in the browser bundle.
 

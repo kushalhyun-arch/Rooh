@@ -8,7 +8,11 @@ export async function submitFeedback(feedback) {
     });
   }
 
-  const email = import.meta.env.VITE_FORMSUBMIT_EMAIL || 'kushal.sharma2709@gmail.com';
+  const email = import.meta.env.VITE_FORMSUBMIT_EMAIL?.trim();
+  if (!email) {
+    throw new Error('Set VITE_FORMSUBMIT_EMAIL to use FormSubmit.');
+  }
+
   const response = await fetch(`https://formsubmit.co/ajax/${encodeURIComponent(email)}`, {
     method: 'POST',
     headers: {
