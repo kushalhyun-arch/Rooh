@@ -822,6 +822,123 @@ main,
   color: rgba(255, 255, 255, 0.5);
 }
 
+.about {
+  padding-top: 90px;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 24px;
+  align-items: center;
+}
+
+.about-copy p {
+  margin: 0 0 18px;
+  color: var(--muted);
+  font-size: 1.04rem;
+}
+
+.team-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 28px;
+}
+
+.team-stats div {
+  padding: 18px 14px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: rgba(255,255,255,0.02);
+  text-align: center;
+}
+
+.team-stats strong {
+  display: block;
+  font-size: 1.7rem;
+  letter-spacing: -0.05em;
+}
+
+.team-stats span {
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.team-card {
+  padding: 28px;
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  background: linear-gradient(180deg, rgba(18,24,38,0.9), rgba(12,17,27,0.9));
+  box-shadow: var(--shadow);
+}
+
+.team-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 22px;
+}
+
+.team-avatar {
+  display: grid;
+  place-items: center;
+  width: 58px;
+  height: 58px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  font-weight: 800;
+  font-size: 1.4rem;
+}
+
+.team-label {
+  margin: 0 0 4px;
+  color: var(--muted);
+  font-size: 0.76rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.team-header h3 {
+  margin: 0;
+  font-size: 1.6rem;
+  letter-spacing: -0.04em;
+}
+
+.team-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 24px;
+  display: grid;
+  gap: 12px;
+}
+
+.team-list li {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line);
+  color: var(--muted);
+}
+
+.team-list strong {
+  color: var(--text);
+}
+
+.connect-links {
+  display: grid;
+  gap: 10px;
+}
+
+.connect-links a {
+  color: var(--text);
+  padding: 0.75rem 0.9rem;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,0.02);
+}
+
 .feedback {
   padding-top: 90px;
 }
@@ -938,7 +1055,9 @@ main,
     grid-template-columns: 1fr 1fr;
   }
 
-  .feature-grid {
+  .feature-grid,
+  .about-grid,
+  .form-grid {
     grid-template-columns: 1fr;
   }
 
