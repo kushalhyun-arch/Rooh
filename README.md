@@ -1,44 +1,42 @@
 # Rooh
 
-A polished single-page landing site for a startup that helps people discover local events, concerts, and party experiences.
+Rooh is a React single-page experience for discovering local events, concerts, and party experiences.
+
+## Requirements
+
+- Node.js 18 or newer
+- npm 9 or newer
+
+## Development
+
+```powershell
+npm install
+Copy-Item .env.example .env
+npm run dev
+```
+
+Vite prints the local URL after the development server starts. Create a production build with `npm run build`; preview it locally with `npm run preview`.
+
+On Windows, `run-dev.bat` starts the development server. `run-prod.bat` builds the app and starts the production preview.
 
 ## Project structure
 
-- `index.html` – main landing page
-- `assets/css/styles.css` – site styling and animations
-- `assets/js/main.js` – interactions, reveal effects, and visitor tracking metadata
+- `src/App.jsx` composes the page.
+- `src/components/` contains page sections and reusable UI behavior.
+- `src/data/` contains the current event and ticket display data.
+- `src/services/` isolates API and feedback requests from UI components.
+- `src/utils/` contains visitor metadata helpers.
+- `src/styles/` contains small app-specific overrides.
+- `assets/css/styles.css` retains the existing visual design.
 
-## Local preview
+## Feedback and future backend
 
-```bash
-cd "C:\Users\kusha\OneDrive\Documents\Web"
-python -m http.server 3000
-```
+Without `VITE_API_BASE_URL`, feedback continues to use FormSubmit. Set `VITE_FORMSUBMIT_EMAIL` in `.env` to the destination address before production; the current destination remains as a fallback.
 
-Then open:
+When a backend is available, set `VITE_API_BASE_URL` to its API root, for example `http://localhost:4000/api`. The feedback service then sends JSON to `POST /feedback`. Keep database credentials and other secrets on the backend; Vite-exposed `VITE_` values are public in the browser bundle.
 
-http://localhost:3000
-
-## Feedback form setup
-
-The feedback form is configured to send submissions to FormSubmit. Replace the placeholder email in `index.html` before going live:
-
-```html
-<form method="POST" action="https://formsubmit.co/hello@rooh.co">
-```
-
-Use your real business email in place of `hello@rooh.co`.
+The booking form is still a front-end demonstration and does not create a reservation. A future booking endpoint and database model can be added behind `src/services/` without coupling those requests to the page components.
 
 ## Visitor tracking
 
-The page stores a unique visitor ID using `localStorage` and appends metadata such as:
-
-- visitor ID
-- visit count
-- page URL
-- referrer
-- browser user agent
-- timezone
-- timestamp
-
-This data is included in the hidden tracking field so it arrives with the feedback email.
+Visitor ID and visit count are stored in `localStorage`. Page URL, referrer, browser, timezone, and timestamp are included in the feedback submission metadata.
