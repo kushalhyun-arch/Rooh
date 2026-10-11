@@ -299,6 +299,7 @@ main,
   min-height: 560px;
   display: grid;
   place-items: center;
+  padding-bottom: 20px;
 }
 
 .floating-card {
@@ -438,14 +439,14 @@ main,
 }
 
 .mini-one {
-  right: 18px;
-  top: 100px;
+  left: 18px;
+  top: 90px;
   animation: floatUp 7s ease-in-out infinite;
 }
 
 .mini-two {
   right: 18px;
-  bottom: 52px;
+  bottom: 30px;
   animation: floatDown 8s ease-in-out infinite;
 }
 
