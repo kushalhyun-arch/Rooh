@@ -170,6 +170,26 @@ main,
   transition: transform 0.25s ease, box-shadow 0.25s ease, opacity 0.25s ease;
 }
 
+.btn-under-progress {
+  position: relative;
+}
+
+.btn-under-progress:hover::after {
+  content: "Under progress";
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 8px);
+  transform: translateX(-50%);
+  background: rgba(15, 23, 42, 0.96);
+  color: #fff;
+  padding: 0.4rem 0.7rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.08);
+  font-size: 0.7rem;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
 .primary-btn,
 .event-footer button {
   background: linear-gradient(135deg, var(--primary), var(--secondary));
