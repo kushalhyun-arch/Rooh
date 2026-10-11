@@ -102,6 +102,16 @@ const feedbackForm = document.getElementById('feedback-form');
 
 if (feedbackForm) {
   storeVisitorData();
+  let statusResetTimer;
+
+  const clearStatusMessage = () => {
+    const statusBox = feedbackForm.querySelector('.form-status');
+    if (!statusBox) return;
+
+    statusBox.textContent = '';
+    statusBox.classList.remove('success', 'error');
+    statusBox.style.opacity = '0';
+  };
 
   feedbackForm.addEventListener('submit', async (event) => {
     event.preventDefault();
@@ -134,12 +144,20 @@ if (feedbackForm) {
       statusBox.textContent = 'Feedback submitted successfully. Thank you!';
       statusBox.classList.remove('error');
       statusBox.classList.add('success');
+      statusBox.style.opacity = '1';
       feedbackForm.reset();
       storeVisitorData();
+
+      clearTimeout(statusResetTimer);
+      statusResetTimer = setTimeout(() => {
+        clearStatusMessage();
+      }, 3000);
     } catch (error) {
+      clearTimeout(statusResetTimer);
       statusBox.textContent = 'Something went wrong while sending your feedback. Please try again.';
       statusBox.classList.remove('success');
       statusBox.classList.add('error');
+      statusBox.style.opacity = '1';
     } finally {
       submitButton.textContent = originalText;
       submitButton.disabled = false;
