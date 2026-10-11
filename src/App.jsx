@@ -1,3 +1,4 @@
+import { Analytics } from '@vercel/analytics/react';
 import DiscoverySections from './components/DiscoverySections.jsx';
 import BookingSection from './components/BookingSection.jsx';
 import FeedbackSection from './components/FeedbackSection.jsx';
@@ -18,6 +19,7 @@ export default function App() {
         <FeedbackSection />
       </main>
       <SiteFooter />
+      <Analytics />
     </>
   );
 }

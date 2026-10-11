@@ -29,6 +29,10 @@ On Windows, `run-dev.bat` starts the development server. `run-prod.bat` builds t
 - `src/styles/` contains small app-specific overrides.
 - `assets/css/styles.css` retains the existing visual design.
 
+## Vercel Web Analytics
+
+The app includes `@vercel/analytics/react`. Enable Web Analytics in the Vercel project's Analytics settings, then deploy; page-view data appears after visitors use the deployed site.
+
 ## Feedback and future backend
 
 Without `VITE_API_BASE_URL`, feedback uses FormSubmit and requires `VITE_FORMSUBMIT_EMAIL`. Copy `.env.example` to `.env` for local development and set the recipient there. For Vercel, add `VITE_FORMSUBMIT_EMAIL` in the project's Environment Variables settings and redeploy after changing it. This value is included in the browser bundle, so it is a public contact address, not a secret.
