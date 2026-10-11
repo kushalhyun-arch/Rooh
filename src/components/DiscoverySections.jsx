@@ -121,7 +121,7 @@ function About() {
         <div className="team-card">
           <div className="team-header"><div className="team-avatar">R</div><div><p className="team-label">Founding team</p><h3>Rooh Collective</h3></div></div>
           <ul className="team-list"><li><span>Product</span><strong>Events &amp; discovery</strong></li><li><span>Operations</span><strong>Venue experiences</strong></li><li><span>Marketing</span><strong>Community growth</strong></li></ul>
-          <div className="connect-links"><a href="mailto:hello@rooh.com">hello@rooh.com</a><a href="https://instagram.com" target="_blank" rel="noreferrer">Instagram</a><a href="https://x.com" target="_blank" rel="noreferrer">X / Twitter</a></div>
+          <div className="connect-links"><a href="mailto:Roohfest@gmail.com">Roohfest@gmail.com</a><a href="https://instagram.com" target="_blank" rel="noreferrer">Instagram</a></div>
         </div>
       </div>
     </Reveal>
